@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 
 public class MouseholdDraw : MonoBehaviour
 {
+    /*
     public GameObject Drawer; 
     // Start is called before the first frame update
     void Start()
@@ -29,26 +31,29 @@ public class MouseholdDraw : MonoBehaviour
             Drawer.GetComponent<TrailRenderer>().emitting = false;
         }
     }
+    */
 
+    public GameObject Drawer;
+    // Start is called before the first frame update
 
-    /*
-    public InputActionProperty pinchAnimationAction;
-    
+    private XRController controller;
+    void Start()
+    {
+        controller = GetComponent<XRController>();
+    }
+
+    // Update is called once per frame
     void Update()
     {
-
-        //float triggerValue = pinchAnimationAction.action.ReadValue<float>();
-    
-        if(Input.pinchAnimationAction)
+        if(Input.GetButtonDown("Fire1"))
         {
             Drawer.GetComponent<TrailRenderer>().emitting = true;
         }
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetButtonUp("Fire1"))
         {
             Drawer.GetComponent<TrailRenderer>().emitting = false;
         }
     }
-    */
 
 
 }
